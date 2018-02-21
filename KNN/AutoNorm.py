@@ -5,7 +5,7 @@ def AutoNorm(DataSet):
         MaxVals = DataSet.max(0)
         MaxMinusMin = MaxVals-MinVals
         NormDataSet = zeros(shape(DataSet))
-        NumOfData = shape(DataSet)[0]
+        NumOfData = DataSet.shape[0]
         NormDataSet = DataSet - tile(MinVals,(NumOfData,1))
         NormDataSet = NormDataSet/tile(MaxMinusMin,(NumOfData,1))
         return NormDataSet,MaxMinusMin,MinVals

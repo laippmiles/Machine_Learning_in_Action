@@ -1,5 +1,5 @@
 def File2Matrix(FileMame,NumberOfClass):
-    import numpy
+    from numpy import zeros
     #好像不用担心重复加载的问题
     File = open(FileMame)
     ArrayOfLines = File.readlines()
@@ -8,7 +8,7 @@ def File2Matrix(FileMame,NumberOfClass):
     # 另一方面，.readline() 每次只读取一行，通常比 .readlines() 慢得多。
     #仅当没有足够内存可以一次读取整个文件时，才应该使用 .readline()。
     NumberOfLines = len(ArrayOfLines)
-    ReturnMat = numpy.zeros((NumberOfLines, NumberOfClass))
+    ReturnMat = zeros((NumberOfLines, NumberOfClass))
     #这里是两层括号！注意写法
     ClassLabelVector = []
     Index = 0
