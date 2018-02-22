@@ -7,4 +7,5 @@ NormDataSet,MaxMinusMin,MinVals = AutoNorm(Mat)
 #print(NormDataSet)
 Input = (array([14488,7.153469,1.673904]) - MinVals)/MaxMinusMin
 Answer = KNN(Input,NormDataSet,Lables,3)
-print(Answer,end='')
+print(Answer,end='\n')
+print('helloworld')
