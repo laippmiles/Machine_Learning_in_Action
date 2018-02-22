@@ -1,6 +1,5 @@
 from  K_NN import *
 from LoadData import *
-from numpy import zeros
 #Ctrl+左键，可以跳转到任何子函数里头
 #listdir(path)作用为列出给定目录的文件名
 K = 10
@@ -11,7 +10,9 @@ NumOfClass = 10
 TrainDataPath = 'trainingDigits'
 TestDataPath = 'testDigits'
 #载入训练数据
+print("LoadTrainData")
 TrainLables = LoadData(TrainDataPath,NumOfPixel_height,NumOfPixel_width)[0]
+print("LoadTestData")
 TrainDataMat = LoadData(TrainDataPath,NumOfPixel_height,NumOfPixel_width)[1]
 #如果一个子函数返回a，b，c，而目前只需要a,b
 #可将这个问题转化为:
@@ -20,9 +21,10 @@ TrainDataMat = LoadData(TrainDataPath,NumOfPixel_height,NumOfPixel_width)[1]
 TestLables,TestDataMat,NumOfTestData = LoadData(TestDataPath,NumOfPixel_height,NumOfPixel_width)
 ClassifyerAnswer = []
 NumOfError = 0
+print("Begain Classify")
 for i in range(NumOfTestData):
-    ClassifyerOfIthTestData = KNN(TestDataMat[i,:],TrainDataMat,TrainLables,K)
-    print('ClassifyerOfIthTestData :%s  ActualOfIthTestData :%s' %(ClassifyerOfIthTestData,TestLables[i]))
-    if ClassifyerOfIthTestData != TestLables[i]:
+    ClassifierIthTestData = KNN(TestDataMat[i,:],TrainDataMat,TrainLables,K)
+    if ClassifierIthTestData != TestLables[i]:
         NumOfError += 1
-print(NumOfError/NumOfTestData)
+        print('ClassifyerOfIthTestData :%s  ActualOfIthTestData :%s' % (ClassifierIthTestData, TestLables[i]))
+print('Accuray: %f' %(1-NumOfError/NumOfTestData))
