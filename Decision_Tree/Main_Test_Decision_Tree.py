@@ -1,5 +1,5 @@
 from Csv2ListOrMatrix import *
 from ShannonEnt import *
+from SplitDataSet import *
 Data = Csv2ListOrMatrix('Test.csv','List')
-print(CalShannonEnt(Data))
-#print(Data)
+print(SplitDataSet(Data,1,1))
