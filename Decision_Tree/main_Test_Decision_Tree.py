@@ -3,9 +3,18 @@ from shannonEnt import *
 from splitDataSet import *
 from chooseBestFeatureToSplit import *
 from createTree import *
-data = csv2ListOrMatrix('Test.csv','List')
+from decisionTreeClassify import *
+from treePlot4In1 import *
+datasetName = 'fish'
+data = csv2ListOrMatrix('Test_'+ datasetName +'.csv','list')
+labels = csv2ListOrMatrix('Test_labels_' + datasetName + '.csv','list')[0]
+#这个出来的是嵌套列表，所以自己动手取第一行才是我们想要的东西
 print(calShannonEnt(data))
-print(splitDataSet(data,1,1))
 print(chooseBestFeatureToSplit(data))
-lables = ['No surfacing','flippers']
-print(createTree(data,lables))
+print(data)
+print(labels)
+tree = createTree(data,labels)
+print(tree)
+createPlot(tree)
+#testVector = [0,1]
+#print(decisionTreeClassify(tree,labels,testVector))
