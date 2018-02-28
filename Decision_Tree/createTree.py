@@ -28,5 +28,6 @@ def createTree(dataSet,labels):
         subLabels = labels[:]
         tree[bestFeatureLabel][value] = createTree(splitDataSet(dataSet,bestFeature,value),subLabels)
         #用递归的方法建立嵌套字典
+        #字典先成型的是最底下的叶节点，然后再自下而上往上层嵌套构造的整个树
 
     return tree
