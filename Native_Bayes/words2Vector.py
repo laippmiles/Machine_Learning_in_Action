@@ -20,7 +20,7 @@ def setOfWords2Vector(vocabList,dataSet):
 def bagOfWords2Vector(vocabList,dataSet):
     #这个子函数调用一次只能处理一个样本
     dataVector = [0] * len(vocabList)
-    #建立一个长度和词汇库相同的，初值全部设为0的列表作为表达一个样本用词情况的向
+    #建立一个长度和词汇库相同的，初值全部设为0的列表作为表达一个样本用词情况的向量
 
     for word in dataSet:
         if word in vocabList:
