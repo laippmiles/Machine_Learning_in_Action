@@ -23,7 +23,7 @@ for post in dataOfPost:
 bagWordVector = []
 for post in dataOfPost:
     vector = bagOfWords2Vector(vocabList,post)
-    bagWordVector.append(vector)
+    bagWordVector.append(vector
 
 print(setWordVector)
 print('-'*20)
