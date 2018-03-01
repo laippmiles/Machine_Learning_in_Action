@@ -4,6 +4,11 @@ from createVocabList import *
 #createVocabList(dataSet)
 from words2Vector import *
 #setOfWords2Vector(vocabList,dataSet)
+from nativeBayes import *
+#trainNativeBayes(trainData,trainLabel)   ;return p1Vector , p0Vector, pClass1
+#classifyNativeBayes(inputData,p0Vector,p1Vector,pClass1)   ;return 1 or 0
+
+
 
 dataOfPost,classOfPost = loadDataSet()
 vocabList  = createVocabList(dataOfPost)
@@ -25,6 +30,6 @@ for post in dataOfPost:
     vector = bagOfWords2Vector(vocabList,post)
     bagWordVector.append(vector)
 
-print(setWordVector)
-print('-'*20)
-print(bagWordVector)
+p1Vector , p0Vector, pClass1 = trainNativeBayes(bagWordVector,classOfPost)
+vector = bagOfWords2Vector(vocabList, ['love','my'] )
+print(classifyNativeBayes(vector,p1Vector , p0Vector, pClass1))
