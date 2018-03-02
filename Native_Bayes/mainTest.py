@@ -8,11 +8,9 @@ from nativeBayes import *
 #trainNativeBayes(trainData,trainLabel)   ;return p1Vector , p0Vector, pClass1
 #classifyNativeBayes(inputData,p0Vector,p1Vector,pClass1)   ;return 1 or 0
 
-
-
 dataOfPost,classOfPost = loadDataSet()
 vocabList  = createVocabList(dataOfPost)
-print(vocabList)
+#print(vocabList)
 
 setWordVector = []
 for post in dataOfPost:
