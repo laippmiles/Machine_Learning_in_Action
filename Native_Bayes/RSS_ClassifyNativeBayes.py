@@ -72,4 +72,4 @@ def localWord(inPutClass1,inPutClass2):
     accuracy = 1 - float(error / len(postList))
     print('The accuracy is : %f' % accuracy)
 
-    return p1Vector , p0Vector, pClass1
+    return vocabList, p1Vector , p0Vector
