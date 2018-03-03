@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Decision_Tree_ID3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/KNN" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Native_Bayes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Decision_Tree_ID3/PlotTree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/someUsefulCode" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
