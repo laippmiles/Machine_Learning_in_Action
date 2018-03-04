@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Native_Bayes" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Decision_Tree_ID3/PlotTree" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/someUsefulCode" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Logistic_regressive" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
