@@ -3,7 +3,7 @@ from RSS_ClassifyNativeBayes import localWord
 from loadOrSaveFile import loadFile
 from sys import path
 print(path)
-path = r'D:\桌面\18_spring\机器学习实战\ML-in-Action-Code-and-Note-master\Machine_Learning_in_Action\someUsefulCode\dataOfRSS'
+path = r'D:\桌面\18_spring\机器学习实战\ML-in-Action-Code-and-Note-master\Machine_Learning_in_Action\Data\dataOfRSS'
 fileNameSfBay = r'\SfBay_2018-03-03_21_57_16_407572.txt'
 fileNameNewYork = r'\NewYork_2018-03-03_21_57_21_949788.txt'
 fromSfBay = loadFile(path + fileNameSfBay)
