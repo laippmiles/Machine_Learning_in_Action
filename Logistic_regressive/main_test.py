@@ -10,9 +10,10 @@ test = csv2ListOrMatrix(path + testSet)
 #trainLabel = train[:,0]
 testData = column_stack((ones((list(shape(test))[0],1)),test[:,1:]))
 testLabel = test[:,0]
-#weights = gradDescend(testData,testLabel,0.001,500)
-#weights = stocGradDescend(testData,testLabel,0.01)
-weights = stocGradAscentPlus(testData,testLabel)
-print(weights)
-plotBestFit(testData,testLabel,weights)
+weights1 = gradDescend(testData,testLabel,0.001,500)
+weights2 = stocGradDescend(testData,testLabel,0.01)
+weights3 = stocGradAscentPlus(testData,testLabel)
+plotBestFit(testData,testLabel,weights1)
+plotBestFit(testData,testLabel,weights2)
+plotBestFit(testData,testLabel,weights3)
 
