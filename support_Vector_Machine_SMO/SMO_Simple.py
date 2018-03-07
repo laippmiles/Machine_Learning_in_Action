@@ -1,7 +1,9 @@
 from  numpy import shape, mat, zeros, multiply
 from SMOSupportFunc import selectJrand, cilpAlpha
 def SMO_Simple(inputData, inputLabels, C=0.6, toler=0.001, maxIter=40):
-    #公式介绍比较好的一篇文章：
+    #SVM具体推导公式如下：
+    #http://blog.csdn.net/shiyanwei1989/article/details/38708973
+    #SMO公式介绍比较好的一篇文章：
     #http://blog.csdn.net/luoshixian099/article/details/51227754
     #转置好像在后面直接.T即可
     #multiply是矩阵点乘
@@ -47,18 +49,21 @@ def SMO_Simple(inputData, inputLabels, C=0.6, toler=0.001, maxIter=40):
                     #不要抄错公式
                     H = min(C, alphas[j] + alphas[i])
                 #设定新的上下界限幅
-                if L == H :print('L == H');continue
+                if L == H :#print('L == H');
+                    continue
 
                 eta = (2.0 * inputData[i,:] * inputData[j,:].T) - \
                       (inputData[i, :] * inputData[i, :].T) - \
                       (inputData[j, :] * inputData[j, :].T)
-                if eta >= 0 :print('eta >= 0') ; continue
+                if eta >= 0 :#print('eta >= 0') ;
+                    continue
                 #eta 的取值与Mercer值相关
 
                 #先更新alpha[j]
                 alphas[j] -= inputLabels[j] * (Ei - Ej) / eta
                 alphas[j] = cilpAlpha(alphas[j], H, L)
-                if(abs(alphas[j]-alphaJOld) < 0.0001): print('j not moving enough') ; continue
+                if(abs(alphas[j]-alphaJOld) < 0.0001): #print('j not moving enough') ;
+                    continue
 
                 #更新alpha[i]
                 alphas[i] += inputLabels[j] * inputLabels[i] * (alphaJOld - alphas[j])
@@ -84,5 +89,6 @@ def SMO_Simple(inputData, inputLabels, C=0.6, toler=0.001, maxIter=40):
                 print(' iter : %d ,i: %d pairs changed %d' %(iter ,i, alphaPairsChanged ))
         if (alphaPairsChanged == 0) : iter += 1
         else: iter = 0
+        #要连续maxIter次alphaPairs不被优化的情况下才算参数组已经收敛，这时优化完成
         print('iteration nuber : %d' %iter)
     return b , alphas
