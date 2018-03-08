@@ -78,9 +78,7 @@ def optTheAlphaIAndJ(i, oS):
             #这个子函数不会直接输出得数，计算结果通过数据结构传递
             #这个return传递的是这次优化的alphaPairsChanged情况
 
-        eta = (2.0 * oS.X[i,:] * oS.X[j,:].T) - \
-                    (oS.X[i, :] * oS.X[i, :].T) - \
-                    (oS.X[j, :] * oS.X[j, :].T)
+        eta = (2.0 * oS.K[i, j] - oS.K[i, i] - oS.K[j, j])
         if eta >= 0 :#print('eta >= 0') ;
             return 0
         #eta 的取值与Mercer值相关
@@ -95,11 +93,11 @@ def optTheAlphaIAndJ(i, oS):
         oS.alphas[i] += oS.y[j] * oS.y[i] * (alphaJOld - oS.alphas[j])
         #alpha[i]不需要再次限幅
 
-        b1 = oS.b - Ei - oS.y[i] * (oS.alphas[i] - alphaIOld) * oS.X[i,:] * oS.X[i,:].T - \
-                         oS.y[j] * (oS.alphas[j] - alphaJOld) * oS.X[i,:] * oS.X[j,:].T
+        b1 = oS.b - Ei - oS.y[i] * (oS.alphas[i] - alphaIOld) * oS.K[i,i] - \
+                         oS.y[j] * (oS.alphas[j] - alphaJOld) * oS.K[i,j]
 
-        b2 = oS.b - Ej - oS.y[i] * (oS.alphas[i] - alphaIOld) * oS.X[i,:] * oS.X[j,:].T - \
-                         oS.y[j] * (oS.alphas[j] - alphaJOld) * oS.X[j,:] * oS.X[j,:].T
+        b2 = oS.b - Ej - oS.y[i] * (oS.alphas[i] - alphaIOld) * oS.K[i,i] - \
+                         oS.y[j] * (oS.alphas[j] - alphaJOld) * oS.K[j,j]
         #先计算b1 ， b2
 
         if (oS.alphas[i] > 0) and (oS.alphas[i] < oS.C) :
